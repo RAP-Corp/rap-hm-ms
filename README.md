@@ -27,22 +27,22 @@ And then go to http://localhost:8080 to test the API's.
 
 You can try the following API's once the server is running.
 
-GET __/person__
+GET __/user__
 
 ``` curl http://localhost:8080/user -v -u brijesh:password```
 
-GET __/person/{id}__
+GET __/user/{id}__
 
 ``` curl http://localhost:8080/user/{id} -v -u brijesh:password```
 
-POST __/person__
+POST __/user__
 
 ``` curl -X POST -d '{
   "userId": "jame@xyz.com",
   "userName": {
     "firstName": "Jame",
     "middleName": "Andy",
-    "lastName": "Trump"
+    "lastName": "James"
   },
   "password": "james",
   "role": "ADMIN",
