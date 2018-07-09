@@ -1,26 +1,14 @@
 package com.rap.services.models;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-@Document
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@ToString
-public class Requisition {
+public class Requisition extends BaseModel{
 	
 	@Id
-	private String documentId;
-	private String insertedBy;
-	private long insertDate;
-	private String updatedBy;
-	private long updateDate;
+	private String requisitionId;
 	private String clientName;
 	private String clientHiringManager;
 	private String clientProjectManager;
@@ -29,18 +17,18 @@ public class Requisition {
 	private String jobLocation;
 	private String jobCategory;
 	private String jobDescription;
-	private String rolesAndResponsibilities;
+	private List<String> rolesAndResponsibilities;
 	private String jobStartDate;
 	private String jobEndDate;
 	private String jobRate;
 	private String jobType;
-	private String skill;
+	private List<String> skill;
 	private String educationQualifications;
 	private String experienceLevel;
-	private String MCQ;
-	private String CodingTest;
-	private String Video;
-	private String customQuestion;
+	private boolean  mcq;
+	private boolean codingTest;
+	private boolean video;
+	private boolean customQuestion;
 	public String getClientName() {
 		return clientName;
 	}
@@ -89,12 +77,7 @@ public class Requisition {
 	public void setJobDescription(String jobDescription) {
 		this.jobDescription = jobDescription;
 	}
-	public String getRolesAndResponsibilities() {
-		return rolesAndResponsibilities;
-	}
-	public void setRolesAndResponsibilities(String rolesAndResponsibilities) {
-		this.rolesAndResponsibilities = rolesAndResponsibilities;
-	}
+	
 	public String getJobStartDate() {
 		return jobStartDate;
 	}
@@ -119,12 +102,7 @@ public class Requisition {
 	public void setJobType(String jobType) {
 		this.jobType = jobType;
 	}
-	public String getSkill() {
-		return skill;
-	}
-	public void setSkill(String skill) {
-		this.skill = skill;
-	}
+	
 	public String getEducationQualifications() {
 		return educationQualifications;
 	}
@@ -137,62 +115,54 @@ public class Requisition {
 	public void setExperienceLevel(String experienceLevel) {
 		this.experienceLevel = experienceLevel;
 	}
-	public String getMCQ() {
-		return MCQ;
+	
+	
+	public String getRequisitionId() {
+		return requisitionId;
 	}
-	public void setMCQ(String mCQ) {
-		MCQ = mCQ;
+	public void setRequisitionId(String requisitionId) {
+		this.requisitionId = requisitionId;
 	}
-	public String getCodingTest() {
-		return CodingTest;
+	public List<String> getRolesAndResponsibilities() {
+		return rolesAndResponsibilities;
 	}
-	public void setCodingTest(String codingTest) {
-		CodingTest = codingTest;
+	public void setRolesAndResponsibilities(List<String> rolesAndResponsibilities) {
+		this.rolesAndResponsibilities = rolesAndResponsibilities;
 	}
-	public String getVideo() {
-		return Video;
+	public List<String> getSkill() {
+		return skill;
 	}
-	public void setVideo(String video) {
-		Video = video;
+	public void setSkill(List<String> skill) {
+		this.skill = skill;
 	}
-	public String getCustomQuestion() {
+	public boolean isMcq() {
+		return mcq;
+	}
+	public void setMcq(boolean mcq) {
+		this.mcq = mcq;
+	}
+	public boolean isCodingTest() {
+		return codingTest;
+	}
+	public void setCodingTest(boolean codingTest) {
+		this.codingTest = codingTest;
+	}
+	public boolean isVideo() {
+		return video;
+	}
+	public void setVideo(boolean video) {
+		this.video = video;
+	}
+	public boolean isCustomQuestion() {
 		return customQuestion;
 	}
-	public void setCustomQuestion(String customQuestion) {
+	public void setCustomQuestion(boolean customQuestion) {
 		this.customQuestion = customQuestion;
 	}
-	public String getInsertedBy() {
-		return insertedBy;
-	}
-	public void setInsertedBy(String insertedBy) {
-		this.insertedBy = insertedBy;
-	}
+	
+	
 
-	public String getUpdatedBy() {
-		return updatedBy;
-	}
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public String getDocumentId() {
-		return documentId;
-	}
-	public void setDocumentId(String documentId) {
-		this.documentId = documentId;
-	}
-	public long getInsertDate() {
-		return insertDate;
-	}
-	public void setInsertDate(long insertDate) {
-		this.insertDate = insertDate;
-	}
-	public long getUpdateDate() {
-		return updateDate;
-	}
-	public void setUpdateDate(long updateDate) {
-		this.updateDate = updateDate;
-	}
+	
 
 
 }
