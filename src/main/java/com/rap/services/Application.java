@@ -8,17 +8,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.mongo.MongoClientSettingsBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
-import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 
 import javax.annotation.PreDestroy;
 
+
 @SpringBootApplication
 @EnableReactiveMongoRepositories
-@EnableWebFluxSecurity
+//@EnableWebFluxSecurity
 public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+
     }
 
     private NioEventLoopGroup eventLoopGroup = new NioEventLoopGroup();
@@ -40,4 +41,6 @@ public class Application {
     public void shutDownEventLoopGroup() {
         eventLoopGroup.shutdownGracefully();
     }
+
+
 }
