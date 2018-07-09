@@ -1,0 +1,9 @@
+#manifest.yml
+---
+applications:
+- name: raphmservice
+  memory: 1GB
+  instances: 1
+  path: ./build/libs/rap-hm-ms-0.0.1-SNAPSHOT.jar
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git
+
