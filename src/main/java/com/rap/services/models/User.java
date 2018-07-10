@@ -9,6 +9,7 @@ public class User extends BaseModel{
     private String userId;
     private String password;
     private UserName userName;
+    private String userEmailAddress;
     private String role;
     private SocialProfile socialProfile;
     private Contact contact;
@@ -47,6 +48,12 @@ public class User extends BaseModel{
 	}
 	public void setContact(Contact contact) {
 		this.contact = contact;
+	}
+	public String getUserEmailAddress() {
+		return userEmailAddress;
+	}
+	public void setUserEmailAddress(String userEmailAddress) {
+		this.userEmailAddress = userEmailAddress;
 	}
 
 }
