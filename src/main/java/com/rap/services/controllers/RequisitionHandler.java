@@ -29,7 +29,7 @@ public class RequisitionHandler {
     }
 
     @GetMapping
-    public Mono<ServerResponse> addUser(ServerRequest request) {
+    public Mono<ServerResponse> addRequisition(ServerRequest request) {
         return ServerResponse.ok().build(user -> {
             reqisitionRepository.insert(request.bodyToMono(Requisition.class)).subscribe();
             user.onComplete();

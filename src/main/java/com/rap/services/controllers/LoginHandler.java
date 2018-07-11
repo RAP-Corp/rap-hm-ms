@@ -2,6 +2,10 @@ package com.rap.services.controllers;
 
 import static org.springframework.web.reactive.function.BodyInserters.fromObject;
 
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,15 +19,29 @@ import reactor.core.publisher.Mono;
 
 @Component
 public class LoginHandler {
+	Logger log = LoggerFactory.getLogger(LoginHandler.class);
 	
+	@Autowired 
 	private UserRespository userRespository;
 	
 	@PostMapping
     public Mono<ServerResponse> loginUser(ServerRequest request) {
         Mono<ServerResponse> notFound = ServerResponse.notFound().build();
-        Mono<User> userMono = this.userRespository.findByUserEmailAddress(request.bodyToMono(User.class));
+        String loginId = request.pathVariable("loginId");
+        String password = request.pathVariable("password");
+        Mono<User> userMono = this.userRespository.findByUserEmailAddress(loginId);
         return userMono
-                .flatMap(user -> ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(fromObject(user)))
+        		.map(user -> {
+        			if (StringUtils.isNotBlank(user.getPassword()) && user.getPassword().equalsIgnoreCase(password)) {
+						log.info(" user password is  : {}  " ,password);
+        			return user;
+        			}else {
+        				log.info(" invalid password  : {}  " ,password);
+        				return notFound;
+        			}
+             	   
+                })
+               .flatMap(user -> ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(fromObject(user))   )
                 .switchIfEmpty(notFound);
     }
 
