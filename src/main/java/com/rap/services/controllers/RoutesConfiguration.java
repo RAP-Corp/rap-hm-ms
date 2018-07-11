@@ -28,7 +28,7 @@ public class RoutesConfiguration {
 
 
     @Bean
-    RouterFunction<?> routes(UserHandler userHandler, RequisitionHandler requisitionHandler) {
+    RouterFunction<?> routes(UserHandler userHandler, RequisitionHandler requisitionHandler,LoginHandler  loginHandler) {
         return nest(accept(MediaType.APPLICATION_JSON),
                 route(RequestPredicates.GET("/user/{userId}"), userHandler::findByUserId))
                 .andRoute(RequestPredicates.POST("/user"), userHandler::addUser)
@@ -37,7 +37,8 @@ public class RoutesConfiguration {
                 .andRoute(RequestPredicates.GET("/requisition/{requisitionId}"), requisitionHandler::findByRequisitionId)
                 .andRoute(RequestPredicates.GET("/requisition"),
                         request -> ServerResponse.ok().body(requisitionRepository.findAll(), Requisition.class))
-                .andRoute(RequestPredicates.POST("/requisition"), requisitionHandler::addUser);
+                .andRoute(RequestPredicates.POST("/requisition"), requisitionHandler::addRequisition)
+                .andRoute(RequestPredicates.GET("/login/{loginId}/{password}"), loginHandler::loginUser);
     }
 
 
