@@ -1,4 +1,4 @@
-package com.rap.services;
+package com.rap.microservices;
 
 import com.mongodb.connection.SslSettings;
 import com.mongodb.connection.netty.NettyStreamFactoryFactory;
@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.mongo.MongoClientSettingsBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.mongodb.config.EnableMongoAuditing;
 import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
 
 import javax.annotation.PreDestroy;
@@ -15,6 +16,7 @@ import javax.annotation.PreDestroy;
 @SpringBootApplication
 @EnableReactiveMongoRepositories
 //@EnableWebFluxSecurity
+@EnableMongoAuditing
 public class Application {
 
     public static void main(String[] args) {

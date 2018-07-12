@@ -21,4 +21,25 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-*
+.idea/workspace.xml
+src/.DS_Store
+src/main/.DS_Store
+src/main/java/.DS_Store
+src/main/java/com/.DS_Store
+src/main/java/com/rap/.DS_Store
+src/main/java/com/rap/microservices/.DS_Store
+src/test/.DS_Store
+src/test/java/.DS_Store
+src/test/java/com/.DS_Store
+src/test/java/com/rap/.DS_Store
+.idea/workspace.xml
+.DS_Store
+.idea/workspace.xml
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+.gradle/4.8/taskHistory/taskHistory.lock
+.gradle/4.8/taskHistory/taskHistory.bin
+.gradle/4.8/fileHashes/resourceHashesCache.bin
+.gradle/4.8/fileHashes/fileHashes.lock
+.gradle/4.8/fileHashes/fileHashes.bin
+.gradle/4.8/fileContent/fileContent.lock
+.gradle/4.8/fileContent/annotation-processors.bin

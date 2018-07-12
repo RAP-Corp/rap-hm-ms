@@ -1,6 +1,6 @@
-package com.rap.services.repositories;
+package com.rap.microservices.repositories;
 
-import com.rap.services.models.Requisition;
+import com.rap.microservices.model.Requisition;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
 

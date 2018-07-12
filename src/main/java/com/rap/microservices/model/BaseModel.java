@@ -1,4 +1,4 @@
-package com.rap.services.models;
+package com.rap.microservices.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

@@ -1,17 +1,24 @@
-/*package com.rap.services.security;
+package com.rap.microservices.security;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.core.userdetails.UserDetails;
-import static org.springframework.security.core.userdetails.User.withUsername;
 
 @Configuration
 public class SecurityConfiguration {
 
-    @Bean
+  /*  @Bean
     UserDetailsRepository userDetailsRepository() {
         UserDetails brijesh = withUsername("brijesh").password("password").roles("USER").build();
         UserDetails singh = withUsername("singh").password("password").roles("USER", "ADMIN").build();
         return new MapUserDetailsRepository (brijesh, singh);
-    }
-}*/
+    }*/
+
+
+   /* @Autowired
+    UserDetailsService userDetailsService ;
+
+    @Autowired
+    public void configAuthBuilder(AuthenticationManagerBuilder builder) throws Exception {
+        builder.userDetailsService(userDetailsService);
+    }*/
+
+}

@@ -1,11 +1,11 @@
-package com.rap.services.repositories;
+package com.rap.microservices.repositories;
 
+import com.rap.microservices.model.User;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
-
-import com.rap.services.models.User;
-
+import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;
 
+@Repository
 public interface UserRespository extends ReactiveMongoRepository<User, String> {
-Mono<User>  findByUserEmailAddress(String loginId);
+Mono<User> findByemail(String loginId);
 }

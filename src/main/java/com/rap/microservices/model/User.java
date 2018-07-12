@@ -1,6 +1,8 @@
-package com.rap.services.models;
+package com.rap.microservices.model;
 
 import org.springframework.data.annotation.Id;
+
+import java.util.Set;
 
 
 public class User extends BaseModel{
@@ -9,10 +11,13 @@ public class User extends BaseModel{
     private String userId;
     private String password;
     private UserName userName;
-    private String userEmailAddress;
-    private String role;
+	//@Indexed(unique = true, direction = IndexDirection.DESCENDING, dropDups = true)
+	private String email;
+	private Set<String> roles;
     private SocialProfile socialProfile;
     private Contact contact;
+	private boolean enabled;
+
 	public String getUserId() {
 		return userId;
 	}
@@ -31,12 +36,6 @@ public class User extends BaseModel{
 	public void setUserName(UserName userName) {
 		this.userName = userName;
 	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
 	public SocialProfile getSocialProfile() {
 		return socialProfile;
 	}
@@ -49,11 +48,28 @@ public class User extends BaseModel{
 	public void setContact(Contact contact) {
 		this.contact = contact;
 	}
-	public String getUserEmailAddress() {
-		return userEmailAddress;
-	}
-	public void setUserEmailAddress(String userEmailAddress) {
-		this.userEmailAddress = userEmailAddress;
+
+	public String getEmail() {
+		return email;
 	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public Set<String> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<String> roles) {
+		this.roles = roles;
+	}
 }

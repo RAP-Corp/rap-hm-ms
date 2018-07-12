@@ -1,30 +1,20 @@
-package com.rap.services.controllers;
+package com.rap.microservices.handlers;
 
-import static org.springframework.web.reactive.function.BodyInserters.fromObject;
-
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.reactive.function.server.ServerRequest;
-import org.springframework.web.reactive.function.server.ServerResponse;
 
-import com.rap.services.models.User;
-import com.rap.services.repositories.UserRespository;
-
-import reactor.core.publisher.Mono;
+import com.rap.microservices.repositories.UserRespository;
 
 @Component
 public class LoginHandler {
 	Logger log = LoggerFactory.getLogger(LoginHandler.class);
-	
+
 	@Autowired 
 	private UserRespository userRespository;
 	
-	@PostMapping
+	/*@PostMapping
     public Mono<ServerResponse> loginUser(ServerRequest request) {
         Mono<ServerResponse> notFound = ServerResponse.notFound().build();
         String loginId = request.pathVariable("loginId");
@@ -43,6 +33,6 @@ public class LoginHandler {
                 })
                .flatMap(user -> ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(fromObject(user))   )
                 .switchIfEmpty(notFound);
-    }
+    }*/
 
 }
